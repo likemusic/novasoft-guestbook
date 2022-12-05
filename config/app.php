@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,8 +55,6 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
-
-    'frontend_url' => env('FRONTEND_URL', 'http://localhost:3000'),
 
     'frontend_url' => env('FRONTEND_URL', 'http://localhost:3000'),
 
@@ -185,6 +183,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+
+        \App\Providers\GuessFactoryNameProvider::class,
+        \App\Providers\GuessModelNameProvider::class,
 
         /*
          * Package Service Providers...
