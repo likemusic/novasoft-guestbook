@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Domain\User\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +11,7 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      *
-     * @param  \App\Http\Requests\Auth\LoginRequest  $request
+     * @param  \App\Domain\User\Auth\LoginRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(LoginRequest $request)
