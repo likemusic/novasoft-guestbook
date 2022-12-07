@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Guestbook;
+namespace App\Domain\GuestbookEntry;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -13,8 +13,11 @@ class GuestbookEntryFactory extends Factory
      */
     public function definition()
     {
+        $faker = fake();
+
         return [
-            GuestbookEntryTableColumnNamesConstants::CONTENT => fake()->unique()->text(),
+            GuestbookEntryTableColumnNamesConstants::CONTENT => $faker->unique()->text(),
+            GuestbookEntryTableColumnNamesConstants::USER_ID => $faker->unique()->userId(),
         ];
     }
 }

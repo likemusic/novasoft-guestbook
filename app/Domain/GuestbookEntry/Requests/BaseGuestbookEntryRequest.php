@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\Guestbook\Requests;
+namespace App\Domain\GuestbookEntry\Requests;
 
-use App\Domain\Guestbook\GuestbookEntryTableColumnNamesConstants;
+use App\Domain\GuestbookEntry\GuestbookEntryTableColumnNamesConstants;
 use Illuminate\Foundation\Http\FormRequest;
 
 class BaseGuestbookEntryRequest extends FormRequest

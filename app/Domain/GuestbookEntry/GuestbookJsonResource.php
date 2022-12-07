@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Guestbook;
+namespace App\Domain\GuestbookEntry;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 

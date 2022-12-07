@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -13,13 +12,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('guestbook_entries', function (Blueprint $table) {
+        Schema::create('admin_responses', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
+            $table->foreignId('guestbook_entry_id')->constrained('guestbook_entries');
             $table->foreignId('user_id')->constrained('users');
 
             $table->mediumText('content');
+
+            $table->unique('guestbook_entry_id');
         });
     }
 
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guestbook_entries');
+        Schema::dropIfExists('admin_responses');
     }
 };

@@ -1,9 +1,7 @@
 <?php
 
-namespace Database\Seeders;
+namespace App\Domain\GuestbookEntry;
 
-use App\Domain\Guestbook\GuestbookEntry;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class GuestbookEntrySeeder extends Seeder

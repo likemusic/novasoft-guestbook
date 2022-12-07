@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Domain\Guestbook;
+namespace App\Domain\GuestbookEntry;
 
-use App\Domain\Guestbook\Requests\StoreGuestbookEntryRequest;
-use App\Domain\Guestbook\Requests\UpdateGuestbookEntryRequest;
+use App\Domain\Base\GetCurrentUserIdTrait;
+use App\Domain\GuestbookEntry\Requests\StoreGuestbookEntryRequest;
+use App\Domain\GuestbookEntry\Requests\UpdateGuestbookEntryRequest;
 use App\Http\Controllers\Controller;
 
 class GuestbookEntryController extends Controller
 {
+    use GetCurrentUserIdTrait;
+
     /**
      * Display a listing of the resource.
      */
@@ -21,7 +24,14 @@ class GuestbookEntryController extends Controller
      */
     public function store(StoreGuestbookEntryRequest $request)
     {
-        return new GuestbookJsonResource(GuestbookEntry::create($request->toArray()));
+        $modelAttributes = array_merge(
+            $request->toArray(),
+            [
+                GuestbookEntryTableColumnNamesConstants::USER_ID => $this->getCurrentUserId(),
+            ]
+        );
+
+        return new GuestbookJsonResource(GuestbookEntry::create($modelAttributes));
     }
 
     /**
