@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return ['Laravel' => app()->version()];
+    return ['Laravel' => app()->version(), 'user_id' => \Illuminate\Support\Facades\Auth::id()];
+});
+
+Route::middleware(['auth:sanctum'])->get('/user', function (\Illuminate\Http\Request $request) {
+    return $request->user();
 });
 
 require __DIR__.'/auth.php';

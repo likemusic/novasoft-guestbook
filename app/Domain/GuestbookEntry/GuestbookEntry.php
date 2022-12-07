@@ -9,9 +9,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+/**
+ * @property int $id
+ * @property string $content
+ * @property User $user
+ * @property ?AdminResponse $adminResponse
+ */
 class GuestbookEntry extends Model
 {
     use HasFactory;
+
+    const PERMISSION_NAME = 'guestbook-entry';
 
     protected $fillable = [
         GuestbookEntryTableColumnNamesConstants::CONTENT,

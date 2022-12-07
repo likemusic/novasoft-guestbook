@@ -33,7 +33,7 @@ Route::group([
         'middleware' => ['auth:sanctum'],
     ], function () {
         Route::apiResource('guestbook', GuestbookEntryController::class)
-            ->parameter('guestbook', 'guestbook-entry')
+            ->parameter('guestbook', 'guestbook_entry')
             ->only(['store', 'update', 'delete']);
 
         // Admin response

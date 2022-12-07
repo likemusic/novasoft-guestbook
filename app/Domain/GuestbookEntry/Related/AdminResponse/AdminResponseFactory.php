@@ -20,7 +20,7 @@ class AdminResponseFactory extends Factory
 
         return [
             AdminResponseTableColumnNamesConstants::CONTENT => $faker->unique()->text(),
-            AdminResponseTableColumnNamesConstants::GUESTBOOK_ENTRY_ID => $faker->guestbookEntryId(),
+            AdminResponseTableColumnNamesConstants::GUESTBOOK_ENTRY_ID => $faker->unique()->guestbookEntryId(),
             AdminResponseTableColumnNamesConstants::USER_ID => $faker->userId(),
         ];
     }

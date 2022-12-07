@@ -2,12 +2,12 @@
 
 namespace App\Domain\GuestbookEntry;
 
+use App\Domain\Base\Controllers\BaseResourceController;
 use App\Domain\Base\GetCurrentUserIdTrait;
 use App\Domain\GuestbookEntry\Requests\StoreGuestbookEntryRequest;
 use App\Domain\GuestbookEntry\Requests\UpdateGuestbookEntryRequest;
-use App\Http\Controllers\Controller;
 
-class GuestbookEntryController extends Controller
+class GuestbookEntryController extends BaseResourceController
 {
     use GetCurrentUserIdTrait;
 
@@ -18,6 +18,17 @@ class GuestbookEntryController extends Controller
     {
         return GuestbookEntry::paginate();
     }
+
+    protected function getModelClassName(): string
+    {
+        return GuestbookEntry::class;
+    }
+
+    protected function getModelIdRouteParameterName(): string
+    {
+        return 'guestbook_entry';
+    }
+
 
     /**
      * Store a newly created resource in storage.

@@ -12,6 +12,8 @@ class AdminResponse extends Model
 {
     use HasFactory;
 
+    const PERMISSION_NAME = 'admin-response';
+
     protected $fillable = [
         AdminResponseTableColumnNamesConstants::CONTENT,
         AdminResponseTableColumnNamesConstants::GUESTBOOK_ENTRY_ID,

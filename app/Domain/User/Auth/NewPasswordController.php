@@ -2,7 +2,7 @@
 
 namespace App\Domain\User\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Domain\Base\Controllers\Controller;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;

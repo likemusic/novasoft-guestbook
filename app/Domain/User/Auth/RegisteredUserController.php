@@ -2,8 +2,8 @@
 
 namespace App\Domain\User\Auth;
 
+use App\Domain\Base\Controllers\Controller;
 use App\Domain\User\User;
-use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

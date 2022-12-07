@@ -184,8 +184,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        \App\Providers\GuessFactoryNameProvider::class,
-        \App\Providers\GuessModelNameProvider::class,
+        \App\Providers\Guess\GuessFactoryNameProvider::class,
+        \App\Providers\Guess\GuessModelNameProvider::class,
+        \App\Providers\Guess\GuessPolicyNameProvider::class,
 
         /*
          * Package Service Providers...
