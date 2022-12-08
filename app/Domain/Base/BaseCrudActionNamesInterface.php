@@ -7,6 +7,6 @@ interface BaseCrudActionNamesInterface
     const CREATE = 'create';
     const UPDATE = 'update';
     const DELETE = 'delete';
-    const LIST = 'list';
+    const INDEX = 'index';
     const SHOW = 'show';
 }

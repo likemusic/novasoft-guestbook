@@ -16,12 +16,12 @@ interface AdminRoleInterface
             AdminResponseActionNamesInterface::CREATE,
             AdminResponseActionNamesInterface::UPDATE,
             AdminResponseActionNamesInterface::DELETE,
-            AdminResponseActionNamesInterface::LIST,
+            AdminResponseActionNamesInterface::INDEX,
             AdminResponseActionNamesInterface::SHOW,
         ],
 
         GuestbookEntry::PERMISSION_NAME => [
-            GuestbookEntryActionNamesInterface::LIST,
+            GuestbookEntryActionNamesInterface::INDEX,
             GuestbookEntryActionNamesInterface::SHOW,
             GuestbookEntryActionNamesInterface::UPDATE,
             GuestbookEntryActionNamesInterface::DELETE,

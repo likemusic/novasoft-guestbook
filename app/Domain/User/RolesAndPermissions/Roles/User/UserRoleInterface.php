@@ -13,7 +13,7 @@ interface UserRoleInterface
         GuestbookEntry::PERMISSION_NAME => [
             GuestbookEntryActionNamesInterface::CREATE,
             GuestbookEntryActionNamesInterface::UPDATE,
-            GuestbookEntryActionNamesInterface::LIST,
+            GuestbookEntryActionNamesInterface::INDEX,
             GuestbookEntryActionNamesInterface::SHOW,
         ]
     ];

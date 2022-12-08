@@ -17,7 +17,7 @@ class GuestbookEntryController extends BaseResourceController
      */
     public function index()
     {
-        return GuestbookEntry::paginate();
+        return GuestbookEntry::fastPaginate();
     }
 
     protected function getModelClassName(): string
