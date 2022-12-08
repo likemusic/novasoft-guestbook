@@ -23,6 +23,14 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::group([
     'prefix' => 'v1',
 ], function () {
+
+    Route::group([
+        'prefix' => 'auth',
+    ], function () {
+        require __DIR__ . '/auth.php';
+    });
+
+
     Route::apiResource('guestbook', GuestbookEntryController::class)
         ->parameter('guestbook', 'guestbook_entry')
         ->only(['index', 'show']);

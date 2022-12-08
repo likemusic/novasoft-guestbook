@@ -21,4 +21,3 @@ Route::middleware(['auth:sanctum'])->get('/user', function (\Illuminate\Http\Req
     return $request->user();
 });
 
-require __DIR__.'/auth.php';
