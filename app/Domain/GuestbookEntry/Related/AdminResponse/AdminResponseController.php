@@ -5,6 +5,7 @@ namespace App\Domain\GuestbookEntry\Related\AdminResponse;
 use App\Domain\Base\Controllers\Controller;
 use App\Domain\Base\GetCurrentUserIdTrait;
 use App\Domain\GuestbookEntry\GuestbookEntry;
+use App\Domain\GuestbookEntry\Related\AdminResponse\Events\AdminResponseCreated;
 use App\Domain\GuestbookEntry\Related\AdminResponse\Requests\StoreAdminResponseRequest;
 use App\Domain\GuestbookEntry\Related\AdminResponse\Requests\UpdateAdminResponseRequest;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -31,7 +32,11 @@ class AdminResponseController extends Controller
             ]
         );
 
-        return new JsonResource($guestbookEntry->adminResponse()->create($attributes));
+        $adminResponse = $guestbookEntry->adminResponse()->create($attributes);
+
+        AdminResponseCreated::dispatch($adminResponse);
+
+        return new JsonResource($adminResponse);
     }
 
     public function show(GuestbookEntry $guestbookEntry)

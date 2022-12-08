@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 /**
  * @property int $id
  * @property string $content
+ * @property int $user_id
  * @property User $user
  * @property ?AdminResponse $adminResponse
  */

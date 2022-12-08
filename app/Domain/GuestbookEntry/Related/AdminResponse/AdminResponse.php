@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property int $id
+ * @property GuestbookEntry $guestbookEntry
+ * @property User $user
+ */
 class AdminResponse extends Model
 {
     use HasFactory;

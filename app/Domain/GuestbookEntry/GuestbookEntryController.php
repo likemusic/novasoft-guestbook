@@ -4,6 +4,7 @@ namespace App\Domain\GuestbookEntry;
 
 use App\Domain\Base\Controllers\BaseResourceController;
 use App\Domain\Base\GetCurrentUserIdTrait;
+use App\Domain\GuestbookEntry\Events\GuestbookEntryCreated;
 use App\Domain\GuestbookEntry\Requests\StoreGuestbookEntryRequest;
 use App\Domain\GuestbookEntry\Requests\UpdateGuestbookEntryRequest;
 
@@ -42,7 +43,11 @@ class GuestbookEntryController extends BaseResourceController
             ]
         );
 
-        return new GuestbookJsonResource(GuestbookEntry::create($modelAttributes));
+        $guestbook = GuestbookEntry::create($modelAttributes);
+
+        GuestbookEntryCreated::dispatch($guestbook);
+
+        return new GuestbookJsonResource($guestbook);
     }
 
     /**
