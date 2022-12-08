@@ -86,24 +86,24 @@ abstract class BasePermissionBasedPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Model $adminResponse)
+    public function delete(User $user, Model $model)
     {
-        return $this->can($user, __FUNCTION__, $adminResponse);
+        return $this->can($user, __FUNCTION__, $model);
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Model $adminResponse)
+    public function restore(User $user, Model $model)
     {
-        return $this->can($user, __FUNCTION__, $adminResponse);
+        return $this->can($user, __FUNCTION__, $model);
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Model $adminResponse)
+    public function forceDelete(User $user, Model $model)
     {
-        return $this->can($user, __FUNCTION__, $adminResponse);
+        return $this->can($user, __FUNCTION__, $model);
     }
 }
