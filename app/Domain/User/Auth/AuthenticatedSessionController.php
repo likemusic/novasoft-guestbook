@@ -10,9 +10,6 @@ class AuthenticatedSessionController extends Controller
 {
     /**
      * Handle an incoming authentication request.
-     *
-     * @param  \App\Domain\User\Auth\LoginRequest  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(LoginRequest $request)
     {
@@ -20,7 +17,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return response()->noContent();
+        $token = $request->user()->createToken('api-token');
+
+        return ['token' => $token->plainTextToken];
     }
 
     /**
@@ -36,6 +35,8 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
+
+        $request->user()->currentAccessToken()->delete();
 
         return response()->noContent();
     }
