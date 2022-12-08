@@ -27,6 +27,10 @@ class GuestbookEntry extends Model
         GuestbookEntryTableColumnNamesConstants::USER_ID,
     ];
 
+    protected $with = [
+        'adminResponse'
+    ];
+
     public function adminResponse(): HasOne
     {
         return $this->hasOne(AdminResponse::class);
