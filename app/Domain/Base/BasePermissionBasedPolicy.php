@@ -2,9 +2,9 @@
 
 namespace App\Domain\Base;
 
-use App\Domain\GuestbookEntry\Related\AdminResponse\AdminResponse;
 use App\Domain\User\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class BasePermissionBasedPolicy
 {
@@ -58,14 +58,10 @@ abstract class BasePermissionBasedPolicy
 
     /**
      * Determine whether the user can view the model.
-     *
-     * @param \App\Domain\User\User $user
-     * @param \App\Domain\GuestbookEntry\Related\AdminResponse\AdminResponse $adminResponse
-     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, AdminResponse $adminResponse)
+    public function view(User $user, Model $model)
     {
-        return $this->can($user, __FUNCTION__, $adminResponse);
+        return $this->can($user, __FUNCTION__, $model);
     }
 
     /**
@@ -81,48 +77,32 @@ abstract class BasePermissionBasedPolicy
 
     /**
      * Determine whether the user can update the model.
-     *
-     * @param \App\Domain\User\User $user
-     * @param \App\Domain\GuestbookEntry\Related\AdminResponse\AdminResponse $adminResponse
-     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, AdminResponse $adminResponse)
+    public function update(User $user, Model $model)
     {
-        return $this->can($user, __FUNCTION__, $adminResponse);
+        return $this->can($user, __FUNCTION__, $model);
     }
 
     /**
      * Determine whether the user can delete the model.
-     *
-     * @param \App\Domain\User\User $user
-     * @param \App\Domain\GuestbookEntry\Related\AdminResponse\AdminResponse $adminResponse
-     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, AdminResponse $adminResponse)
+    public function delete(User $user, Model $adminResponse)
     {
         return $this->can($user, __FUNCTION__, $adminResponse);
     }
 
     /**
      * Determine whether the user can restore the model.
-     *
-     * @param \App\Domain\User\User $user
-     * @param \App\Domain\GuestbookEntry\Related\AdminResponse\AdminResponse $adminResponse
-     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, AdminResponse $adminResponse)
+    public function restore(User $user, Model $adminResponse)
     {
         return $this->can($user, __FUNCTION__, $adminResponse);
     }
 
     /**
      * Determine whether the user can permanently delete the model.
-     *
-     * @param \App\Domain\User\User $user
-     * @param \App\Domain\GuestbookEntry\Related\AdminResponse\AdminResponse $adminResponse
-     * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, AdminResponse $adminResponse)
+    public function forceDelete(User $user, Model $adminResponse)
     {
         return $this->can($user, __FUNCTION__, $adminResponse);
     }
