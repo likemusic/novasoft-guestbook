@@ -24,10 +24,8 @@ Route::group([
     'prefix' => 'v1',
 ], function () {
     Route::apiResource('guestbook', GuestbookEntryController::class)
-        ->parameter('guestbook', 'guestbook-entry')
+        ->parameter('guestbook', 'guestbook_entry')
         ->only(['index', 'show']);
-
-//    Route::apiResource('guestbook/{guestbook_entry}/comment', AdminResponseController::class)->only('show');
 
     Route::group([
         'middleware' => ['auth:sanctum'],
