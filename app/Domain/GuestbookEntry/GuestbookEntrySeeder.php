@@ -2,9 +2,9 @@
 
 namespace App\Domain\GuestbookEntry;
 
-use Illuminate\Database\Seeder;
+use App\Domain\Base\BaseSeeder;
 
-class GuestbookEntrySeeder extends Seeder
+class GuestbookEntrySeeder extends BaseSeeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class GuestbookEntrySeeder extends Seeder
      */
     public function run()
     {
-        GuestbookEntry::factory()->count(3)->create();
+        GuestbookEntry::factory()->count($this->getItemsCount())->create();
     }
 }

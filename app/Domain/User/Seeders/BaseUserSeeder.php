@@ -2,12 +2,12 @@
 
 namespace App\Domain\User\Seeders;
 
+use App\Domain\Base\BaseSeeder;
 use App\Domain\User\User;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
-abstract class BaseUserSeeder extends Seeder
+abstract class BaseUserSeeder extends BaseSeeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +16,7 @@ abstract class BaseUserSeeder extends Seeder
      */
     public function run()
     {
-        $users = User::factory()->count(3)->create();
+        $users = User::factory()->count($this->getItemsCount())->create();
 
         $this->attachRoleToUsers($users);
     }

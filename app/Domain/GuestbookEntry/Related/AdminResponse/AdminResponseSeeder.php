@@ -2,9 +2,9 @@
 
 namespace App\Domain\GuestbookEntry\Related\AdminResponse;
 
-use Illuminate\Database\Seeder;
+use App\Domain\Base\BaseSeeder;
 
-class AdminResponseSeeder extends Seeder
+class AdminResponseSeeder extends BaseSeeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class AdminResponseSeeder extends Seeder
      */
     public function run()
     {
-        AdminResponse::factory()->count(3)->create();
+        AdminResponse::factory()->count($this->getItemsCount())->create();
     }
 }

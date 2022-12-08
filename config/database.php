@@ -148,4 +148,5 @@ return [
 
     ],
 
+    'seeders_count' => env('SEEDERS_ITEMS_COUNT', 3),
 ];
